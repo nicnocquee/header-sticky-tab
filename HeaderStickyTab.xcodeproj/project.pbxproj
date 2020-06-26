@@ -14,6 +14,7 @@
 		030964AC24A59331003B0AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030964AB24A59331003B0AA4 /* Assets.xcassets */; };
 		030964AF24A59331003B0AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */; };
 		030964BA24A59332003B0AA4 /* HeaderStickyTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */; };
+		030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		030964B524A59332003B0AA4 /* HeaderStickyTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeaderStickyTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStickyTabTests.swift; sourceTree = "<group>"; };
 		030964BB24A59332003B0AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderStickyTabViewController.swift; path = Source/HeaderStickyTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				030964A224A59330003B0AA4 /* AppDelegate.swift */,
 				030964A424A59330003B0AA4 /* SceneDelegate.swift */,
 				030964A624A59330003B0AA4 /* ViewController.swift */,
+				030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */,
 				030964A824A59330003B0AA4 /* Main.storyboard */,
 				030964AB24A59331003B0AA4 /* Assets.xcassets */,
 				030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */,
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */,
 				030964A724A59330003B0AA4 /* ViewController.swift in Sources */,
 				030964A324A59330003B0AA4 /* AppDelegate.swift in Sources */,
 				030964A524A59330003B0AA4 /* SceneDelegate.swift in Sources */,
