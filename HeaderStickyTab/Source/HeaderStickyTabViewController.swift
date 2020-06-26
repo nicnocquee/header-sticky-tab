@@ -31,6 +31,7 @@ class HeaderStickyTabViewController: UIViewController {
     private var headerViewTopAnchorConstraint: NSLayoutConstraint = NSLayoutConstraint()
     private var verticalScrollTopInset: CGFloat = 0
     private var horizontalScrollView = UIScrollView()
+    private var contentOffsetObservers: [NSKeyValueObservation] = []
     
     override func loadView() {
         super.loadView()
@@ -43,18 +44,18 @@ class HeaderStickyTabViewController: UIViewController {
         self.view.addSubview(horizontalScrollView)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerViewTopAnchorConstraint = headerView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        headerViewTopAnchorConstraint = headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0)
         headerViewTopAnchorConstraint.priority = UILayoutPriority(rawValue: 999)
         self.view.addSubview(headerView)
         
         tabView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tabView)
-        
+                
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             headerViewTopAnchorConstraint,
-            headerView.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top),
+            headerView.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor),
             
             tabView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tabView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -75,18 +76,37 @@ class HeaderStickyTabViewController: UIViewController {
         addChildViewControllers(self.viewControllers)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewControllers.forEach { (vc) in
+            contentOffsetObservers.append(vc.scrollView.observe(\UIScrollView.contentOffset, options: .new) { (scrollView, change) in
+                self.headerViewTopAnchorConstraint.constant = -(change.newValue!.y + self.verticalScrollTopInset)
+                UIView.animate(withDuration: 0) {
+                    self.view.layoutIfNeeded()
+                }
+            })
+        }
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        verticalScrollTopInset = tabView.frame.maxY
-        
-        viewControllers.forEach { (vc) in
-            vc.scrollView.contentInsetAdjustmentBehavior = .never
-            vc.scrollView.contentInset.top = verticalScrollTopInset
-            vc.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
-            vc.scrollView.verticalScrollIndicatorInsets.top = verticalScrollTopInset
-            vc.scrollView.setContentOffset(CGPoint(x: 0, y: -verticalScrollTopInset), animated: false)
+        if verticalScrollTopInset == 0 {
+            verticalScrollTopInset = tabView.frame.maxY
+            
+            viewControllers.forEach { (vc) in
+                vc.scrollView.contentInsetAdjustmentBehavior = .never
+                vc.scrollView.contentInset.top = verticalScrollTopInset
+                vc.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+                vc.scrollView.verticalScrollIndicatorInsets.top = verticalScrollTopInset
+                vc.scrollView.setContentOffset(CGPoint(x: 0, y: -verticalScrollTopInset), animated: false)
+                
+                
+            }
         }
+        
     }
 
     func addChildViewControllers(_ childVCs: [HeaderStickyTabChildViewController]) {
