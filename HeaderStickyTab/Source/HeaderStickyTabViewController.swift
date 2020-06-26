@@ -28,6 +28,8 @@ class HeaderStickyTabViewController: UIViewController {
     var tabView: StickyTabResponsableView = PlainTabView()
     var viewControllers: [HeaderStickyTabChildViewController] = [EmptyChildViewController(style: .plain)]
     
+    private var headerViewTopAnchorConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var verticalScrollTopInset: CGFloat = 0
     private var horizontalScrollView = UIScrollView()
     
     override func loadView() {
@@ -35,11 +37,14 @@ class HeaderStickyTabViewController: UIViewController {
         
         horizontalScrollView.isDirectionalLockEnabled = true
         horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalScrollView.contentInsetAdjustmentBehavior = .never
         horizontalScrollView.backgroundColor = .yellow
         horizontalScrollView.isPagingEnabled = true
         self.view.addSubview(horizontalScrollView)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerViewTopAnchorConstraint = headerView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        headerViewTopAnchorConstraint.priority = UILayoutPriority(rawValue: 999)
         self.view.addSubview(headerView)
         
         tabView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +53,8 @@ class HeaderStickyTabViewController: UIViewController {
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            headerView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            headerViewTopAnchorConstraint,
+            headerView.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top),
             
             tabView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tabView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -56,7 +62,7 @@ class HeaderStickyTabViewController: UIViewController {
             
             horizontalScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             horizontalScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            horizontalScrollView.topAnchor.constraint(equalTo: tabView.bottomAnchor),
+            horizontalScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             horizontalScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
@@ -65,18 +71,53 @@ class HeaderStickyTabViewController: UIViewController {
         super.viewDidLoad()
 
         self.tabView.titles = ["First tab", "Second tab"]
+        
+        addChildViewControllers(self.viewControllers)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        verticalScrollTopInset = tabView.frame.maxY
+        
+        viewControllers.forEach { (vc) in
+            vc.scrollView.contentInsetAdjustmentBehavior = .never
+            vc.scrollView.contentInset.top = verticalScrollTopInset
+            vc.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+            vc.scrollView.verticalScrollIndicatorInsets.top = verticalScrollTopInset
+            vc.scrollView.setContentOffset(CGPoint(x: 0, y: -verticalScrollTopInset), animated: false)
+        }
     }
-    */
+
+    func addChildViewControllers(_ childVCs: [HeaderStickyTabChildViewController]) {
+        let constraints = childVCs.enumerated().flatMap { (index, childVC) -> [NSLayoutConstraint] in
+            var childConstraints: [NSLayoutConstraint] = []
+
+            childVC.scrollView.translatesAutoresizingMaskIntoConstraints = false
+            horizontalScrollView.addSubview(childVC.scrollView)
+            
+            childConstraints.append(contentsOf: [
+                childVC.scrollView.topAnchor.constraint(equalTo: horizontalScrollView.topAnchor, constant: 0),
+                childVC.scrollView.heightAnchor.constraint(equalTo: horizontalScrollView.heightAnchor),
+                childVC.scrollView.widthAnchor.constraint(equalTo: horizontalScrollView.widthAnchor)
+            ])
+            
+            if (index == 0) {
+                childConstraints.append(childVC.scrollView.leadingAnchor.constraint(equalTo: horizontalScrollView.leadingAnchor, constant: 0))
+            }
+            
+            self.addChild(childVC)
+            
+            childVC.didMove(toParent: self)
+                        
+            return childConstraints
+        }
+        
+        if constraints.count > 0 {
+            NSLayoutConstraint.activate(constraints)
+        }
+        
+    }
 
 }
 
@@ -140,10 +181,32 @@ class EmptyChildViewController: UITableViewController, HeaderStickyTabChildViewC
         return self.tableView
     }
     var tabTitle: String = "First"
+    
+    lazy var data: [String] = {
+        var array: [String] = []
+        for i in 0..<100 {
+            array.append("Row \(i)")
+        }
+        
+        return array
+    }()
+    
+    override func viewDidLoad() {
+        self.tableView.backgroundColor = .cyan
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.insetsContentViewsToSafeArea = false
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return data.count
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = data[indexPath.row]
+        return cell
     }
 }
