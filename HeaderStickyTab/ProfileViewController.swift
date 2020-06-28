@@ -34,18 +34,13 @@ class ProfileViewController: HeaderStickyTabViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func childDidScroll(child: HeaderStickyTabChildViewController, childIndex: Int, yOffset: CGFloat) {
+        super.childDidScroll(child: child, childIndex: childIndex, yOffset: yOffset)
+        
+        let distance = child.scrollView.contentOffset.y + child.scrollView.contentInset.top
+        (self.headerView as! ProfileHeaderView).didScroll(by: Float(distance))
     }
-    */
-
 }
-
 
 class FirstTabViewController: UITableViewController, HeaderStickyTabChildViewController {
     var scrollView: UIScrollView {

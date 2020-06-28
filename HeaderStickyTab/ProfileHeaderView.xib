@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="avatarContainerView" destination="lrd-hD-vl7" id="YnN-bB-xi3"/>
                 <outlet property="avatarImageView" destination="vPe-ZJ-aDU" id="wdL-x1-MYs"/>
+                <outlet property="blurView" destination="fas-zp-G5d" id="pwQ-18-LGR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="16c-h4-NHx"/>
                 <outlet property="fullNameLabel" destination="Psv-t3-MfT" id="Aep-hT-bkl"/>
                 <outlet property="headerImageView" destination="KMu-5d-bfO" id="ano-ut-Nxq"/>
@@ -27,18 +28,15 @@
                         <constraint firstAttribute="height" constant="161" id="kvw-t6-uPT"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-t3-MfT">
-                    <rect key="frame" x="148" y="169" width="246" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm5-bd-z4l">
-                    <rect key="frame" x="148" y="198" width="246" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fas-zp-G5d">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Prf-qT-6wr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrd-hD-vl7">
                     <rect key="frame" x="20" y="95" width="120" height="120"/>
                     <subviews>
@@ -57,6 +55,18 @@
                         <constraint firstAttribute="width" constant="120" id="lmy-ZS-Ru6"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-t3-MfT">
+                    <rect key="frame" x="148" y="169" width="246" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm5-bd-z4l">
+                    <rect key="frame" x="148" y="198" width="246" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>

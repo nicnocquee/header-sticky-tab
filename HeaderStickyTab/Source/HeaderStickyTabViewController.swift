@@ -104,14 +104,6 @@ class HeaderStickyTabViewController: UIViewController {
         contentOffsetObservers.removeAll()
     }
     
-    func childDidScroll(child: HeaderStickyTabChildViewController, childIndex: Int, yOffset: CGFloat) {
-        // push the header around based on the content offset of the child's scroll view
-        self.headerViewTopAnchorConstraint.constant = -(yOffset + self.verticalScrollTopInset)
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -167,18 +159,37 @@ class HeaderStickyTabViewController: UIViewController {
             NSLayoutConstraint.activate(constraints)
         }
     }
+    
+    /**
+        Override this function if you want to do something after page changes. DO NOT FORGET TO CALL super.didChangePage
+     */
+    func didChangePage(_ page: Int) {
+        horizontalScrollView.setContentOffset(CGPoint(x: CGFloat(page) * horizontalScrollView.frame.width, y: 0), animated: true) // scroll the horizontal view to the selected page
+         self.tabView.didChangeTab(to: page) // notify the tab view that page changes because user scroll to left or right
+    }
+    
+    /**
+     Override this function if you want to do something when the child view controller scrolls. DO NOT FORGET TO CALL super.childDidScroll
+     */
+    func childDidScroll(child: HeaderStickyTabChildViewController, childIndex: Int, yOffset: CGFloat) {
+        // push the header around based on the content offset of the child's scroll view
+        self.headerViewTopAnchorConstraint.constant = -(yOffset + self.verticalScrollTopInset)
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension HeaderStickyTabViewController: StickyTabViewDelegate {
     func didSelectTab(at index: Int) {
-        horizontalScrollView.setContentOffset(CGPoint(x: CGFloat(index) * horizontalScrollView.frame.width, y: 0), animated: true) // scroll the horizontal view to the selected page
+        self.didChangePage(index)
     }
 }
 
 extension HeaderStickyTabViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = getPage(of: scrollView)
-        self.tabView.didChangeTab(to: page) // notify the tab view that page changes because user scroll to left or right
+        self.didChangePage(page)
         
     }
     
