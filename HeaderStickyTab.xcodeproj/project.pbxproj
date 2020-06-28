@@ -15,6 +15,9 @@
 		030964AF24A59331003B0AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */; };
 		030964BA24A59332003B0AA4 /* HeaderStickyTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */; };
 		030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */; };
+		030964C724A8CA77003B0AA4 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */; };
+		030964CA24A8CB92003B0AA4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */; };
+		030964CC24A8D4C1003B0AA4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStickyTabTests.swift; sourceTree = "<group>"; };
 		030964BB24A59332003B0AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderStickyTabViewController.swift; path = Source/HeaderStickyTabViewController.swift; sourceTree = "<group>"; };
+		030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,9 @@
 				030964AB24A59331003B0AA4 /* Assets.xcassets */,
 				030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */,
 				030964B024A59331003B0AA4 /* Info.plist */,
+				030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */,
+				030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */,
+				030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */,
 			);
 			path = HeaderStickyTab;
 			sourceTree = "<group>";
@@ -186,6 +195,7 @@
 				030964AF24A59331003B0AA4 /* LaunchScreen.storyboard in Resources */,
 				030964AC24A59331003B0AA4 /* Assets.xcassets in Resources */,
 				030964AA24A59330003B0AA4 /* Main.storyboard in Resources */,
+				030964C724A8CA77003B0AA4 /* ProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030964CC24A8D4C1003B0AA4 /* ProfileViewController.swift in Sources */,
 				030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */,
 				030964A724A59330003B0AA4 /* ViewController.swift in Sources */,
+				030964CA24A8CB92003B0AA4 /* ProfileHeaderView.swift in Sources */,
 				030964A324A59330003B0AA4 /* AppDelegate.swift in Sources */,
 				030964A524A59330003B0AA4 /* SceneDelegate.swift in Sources */,
 			);

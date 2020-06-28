@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileHeaderView" customModule="HeaderStickyTab" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarContainerView" destination="lrd-hD-vl7" id="YnN-bB-xi3"/>
+                <outlet property="avatarImageView" destination="vPe-ZJ-aDU" id="wdL-x1-MYs"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="16c-h4-NHx"/>
+                <outlet property="fullNameLabel" destination="Psv-t3-MfT" id="Aep-hT-bkl"/>
+                <outlet property="headerImageView" destination="KMu-5d-bfO" id="ano-ut-Nxq"/>
+                <outlet property="usernameLabel" destination="lm5-bd-z4l" id="EAg-Ip-lCz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="239"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach" translatesAutoresizingMaskIntoConstraints="NO" id="KMu-5d-bfO">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="161" id="kvw-t6-uPT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-t3-MfT">
+                    <rect key="frame" x="148" y="169" width="246" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm5-bd-z4l">
+                    <rect key="frame" x="148" y="198" width="246" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrd-hD-vl7">
+                    <rect key="frame" x="20" y="95" width="120" height="120"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="vPe-ZJ-aDU">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="vPe-ZJ-aDU" firstAttribute="leading" secondItem="lrd-hD-vl7" secondAttribute="leading" id="EMj-j2-VQN"/>
+                        <constraint firstAttribute="bottom" secondItem="vPe-ZJ-aDU" secondAttribute="bottom" id="Jjl-IK-WKj"/>
+                        <constraint firstAttribute="trailing" secondItem="vPe-ZJ-aDU" secondAttribute="trailing" id="axf-H6-VJf"/>
+                        <constraint firstItem="vPe-ZJ-aDU" firstAttribute="top" secondItem="lrd-hD-vl7" secondAttribute="top" id="etn-QR-K4j"/>
+                        <constraint firstAttribute="height" constant="120" id="i9s-CJ-hA3"/>
+                        <constraint firstAttribute="width" constant="120" id="lmy-ZS-Ru6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="KMu-5d-bfO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="30I-Xr-bVM"/>
+                <constraint firstItem="lrd-hD-vl7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Eds-ox-PrS"/>
+                <constraint firstItem="lm5-bd-z4l" firstAttribute="top" secondItem="Psv-t3-MfT" secondAttribute="bottom" constant="8" id="FAV-rw-p1P"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lrd-hD-vl7" secondAttribute="bottom" constant="17" id="KiV-eG-Gye"/>
+                <constraint firstAttribute="trailing" secondItem="Psv-t3-MfT" secondAttribute="trailing" constant="20" id="VXh-4k-Dvk"/>
+                <constraint firstItem="Psv-t3-MfT" firstAttribute="top" secondItem="KMu-5d-bfO" secondAttribute="bottom" constant="8" id="XCW-HU-Byj"/>
+                <constraint firstItem="lrd-hD-vl7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="95" id="aDV-yq-DIo"/>
+                <constraint firstItem="lm5-bd-z4l" firstAttribute="leading" secondItem="lrd-hD-vl7" secondAttribute="trailing" constant="8" id="bdh-Pj-aXY"/>
+                <constraint firstItem="Psv-t3-MfT" firstAttribute="leading" secondItem="lrd-hD-vl7" secondAttribute="trailing" constant="8" id="fPV-Bb-8qy"/>
+                <constraint firstItem="KMu-5d-bfO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ihd-s7-cSL"/>
+                <constraint firstAttribute="trailing" secondItem="KMu-5d-bfO" secondAttribute="trailing" id="r0v-JH-QSX"/>
+                <constraint firstAttribute="trailing" secondItem="lm5-bd-z4l" secondAttribute="trailing" constant="20" id="r97-ch-Wzn"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-66.629464285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar" width="137" height="158"/>
+        <image name="beach" width="1000" height="665"/>
+    </resources>
+</document>
