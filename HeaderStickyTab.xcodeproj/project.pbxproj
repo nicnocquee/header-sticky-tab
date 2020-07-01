@@ -18,10 +18,18 @@
 		030964C724A8CA77003B0AA4 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */; };
 		030964CA24A8CB92003B0AA4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */; };
 		030964CC24A8D4C1003B0AA4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */; };
+		03C7858524ACBB2600A5B95A /* HeaderStickyTabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7858424ACBB2600A5B95A /* HeaderStickyTabUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		030964B624A59332003B0AA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0309649724A59330003B0AA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0309649E24A59330003B0AA4;
+			remoteInfo = HeaderStickyTab;
+		};
+		03C7858724ACBB2600A5B95A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0309649724A59330003B0AA4 /* Project object */;
 			proxyType = 1;
@@ -46,6 +54,9 @@
 		030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		03C7858224ACBB2600A5B95A /* HeaderStickyTabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeaderStickyTabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03C7858424ACBB2600A5B95A /* HeaderStickyTabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStickyTabUITests.swift; sourceTree = "<group>"; };
+		03C7858624ACBB2600A5B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03C7857F24ACBB2600A5B95A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,6 +89,7 @@
 			children = (
 				030964A124A59330003B0AA4 /* HeaderStickyTab */,
 				030964B824A59332003B0AA4 /* HeaderStickyTabTests */,
+				03C7858324ACBB2600A5B95A /* HeaderStickyTabUITests */,
 				030964A024A59330003B0AA4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +99,7 @@
 			children = (
 				0309649F24A59330003B0AA4 /* HeaderStickyTab.app */,
 				030964B524A59332003B0AA4 /* HeaderStickyTabTests.xctest */,
+				03C7858224ACBB2600A5B95A /* HeaderStickyTabUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +129,15 @@
 				030964BB24A59332003B0AA4 /* Info.plist */,
 			);
 			path = HeaderStickyTabTests;
+			sourceTree = "<group>";
+		};
+		03C7858324ACBB2600A5B95A /* HeaderStickyTabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				03C7858424ACBB2600A5B95A /* HeaderStickyTabUITests.swift */,
+				03C7858624ACBB2600A5B95A /* Info.plist */,
+			);
+			path = HeaderStickyTabUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +178,24 @@
 			productReference = 030964B524A59332003B0AA4 /* HeaderStickyTabTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		03C7858124ACBB2600A5B95A /* HeaderStickyTabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03C7858B24ACBB2600A5B95A /* Build configuration list for PBXNativeTarget "HeaderStickyTabUITests" */;
+			buildPhases = (
+				03C7857E24ACBB2600A5B95A /* Sources */,
+				03C7857F24ACBB2600A5B95A /* Frameworks */,
+				03C7858024ACBB2600A5B95A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03C7858824ACBB2600A5B95A /* PBXTargetDependency */,
+			);
+			name = HeaderStickyTabUITests;
+			productName = HeaderStickyTabUITests;
+			productReference = 03C7858224ACBB2600A5B95A /* HeaderStickyTabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,6 +210,10 @@
 						CreatedOnToolsVersion = 11.5;
 					};
 					030964B424A59332003B0AA4 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 0309649E24A59330003B0AA4;
+					};
+					03C7858124ACBB2600A5B95A = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 0309649E24A59330003B0AA4;
 					};
@@ -183,6 +234,7 @@
 			targets = (
 				0309649E24A59330003B0AA4 /* HeaderStickyTab */,
 				030964B424A59332003B0AA4 /* HeaderStickyTabTests */,
+				03C7858124ACBB2600A5B95A /* HeaderStickyTabUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,6 +252,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		030964B324A59332003B0AA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C7858024ACBB2600A5B95A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,6 +289,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03C7857E24ACBB2600A5B95A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C7858524ACBB2600A5B95A /* HeaderStickyTabUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -237,6 +304,11 @@
 			isa = PBXTargetDependency;
 			target = 0309649E24A59330003B0AA4 /* HeaderStickyTab */;
 			targetProxy = 030964B624A59332003B0AA4 /* PBXContainerItemProxy */;
+		};
+		03C7858824ACBB2600A5B95A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0309649E24A59330003B0AA4 /* HeaderStickyTab */;
+			targetProxy = 03C7858724ACBB2600A5B95A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -454,6 +526,44 @@
 			};
 			name = Release;
 		};
+		03C7858924ACBB2600A5B95A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNTV3ZQR3E;
+				INFOPLIST_FILE = HeaderStickyTabUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fyi.nico.HeaderStickyTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HeaderStickyTab;
+			};
+			name = Debug;
+		};
+		03C7858A24ACBB2600A5B95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNTV3ZQR3E;
+				INFOPLIST_FILE = HeaderStickyTabUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fyi.nico.HeaderStickyTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HeaderStickyTab;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -480,6 +590,15 @@
 			buildConfigurations = (
 				030964C224A59332003B0AA4 /* Debug */,
 				030964C324A59332003B0AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03C7858B24ACBB2600A5B95A /* Build configuration list for PBXNativeTarget "HeaderStickyTabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C7858924ACBB2600A5B95A /* Debug */,
+				03C7858A24ACBB2600A5B95A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
