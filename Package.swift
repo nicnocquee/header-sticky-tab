@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "HeaderStickyTabViewController",
             dependencies: [],
-            exclude: ["Example/*"]),
+            exclude: ["Example"]),
         .testTarget(
             name: "HeaderStickyTabViewControllerTests",
             dependencies: ["HeaderStickyTabViewController"]),
