@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HeaderStickyTabViewController
 
 class ProfileViewController: HeaderStickyTabViewController {
     

@@ -8,36 +8,36 @@
 
 import UIKit
 
-protocol StickyTabViewDelegate: AnyObject {
+public protocol StickyTabViewDelegate: AnyObject {
     func  didSelectTab(at index: Int)
 }
 
-protocol StickyTabView: UIView {
+public protocol StickyTabView: UIView {
     var titles: [String] { get set }
     var indexSelectionDelegate: StickyTabViewDelegate? { get set }
     func didChangeTab(to index: Int)
 }
 
-protocol HeaderStickyTabChildViewController: UIViewController {
+public protocol HeaderStickyTabChildViewController: UIViewController {
     var scrollView: UIScrollView { get }
     var tabTitle: String { get }
 }
 
-class HeaderStickyTabViewController: UIViewController {
-    var headerView: UIView = EmptyHeaderView()
-    var tabView: StickyTabView = PlainTabView() {
+open class HeaderStickyTabViewController: UIViewController {
+    public var headerView: UIView = EmptyHeaderView()
+    public var tabView: StickyTabView = PlainTabView() {
         didSet {
             tabView.indexSelectionDelegate = self
         }
     }
-    var viewControllers: [HeaderStickyTabChildViewController] = [EmptyChildViewController(style: .plain)]
+    public var viewControllers: [HeaderStickyTabChildViewController] = [EmptyChildViewController(style: .plain)]
     
     private var headerViewTopAnchorConstraint: NSLayoutConstraint = NSLayoutConstraint()
     private var verticalScrollTopInset: CGFloat = 0
     private var horizontalScrollView = UIScrollView()
     private var contentOffsetObservers: [NSKeyValueObservation] = []
     
-    override func loadView() {
+    public override func loadView() {
         super.loadView()
         
         horizontalScrollView.isDirectionalLockEnabled = true
@@ -74,7 +74,7 @@ class HeaderStickyTabViewController: UIViewController {
         ])
     }
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         horizontalScrollView.delegate = self
@@ -83,7 +83,7 @@ class HeaderStickyTabViewController: UIViewController {
         addChildViewControllers(self.viewControllers)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // observe the content offset of the children's scroll views
@@ -94,7 +94,7 @@ class HeaderStickyTabViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         contentOffsetObservers.forEach { (observer) in
@@ -104,7 +104,7 @@ class HeaderStickyTabViewController: UIViewController {
         contentOffsetObservers.removeAll()
     }
     
-    override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         if verticalScrollTopInset == 0 {
@@ -113,7 +113,7 @@ class HeaderStickyTabViewController: UIViewController {
             viewControllers.forEach { (vc) in
                 vc.scrollView.contentInsetAdjustmentBehavior = .never
                 vc.scrollView.contentInset.top = verticalScrollTopInset
-                vc.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+                // vc.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
                 vc.scrollView.verticalScrollIndicatorInsets.top = verticalScrollTopInset
                 vc.scrollView.setContentOffset(CGPoint(x: 0, y: -verticalScrollTopInset), animated: false)
             }
@@ -163,7 +163,7 @@ class HeaderStickyTabViewController: UIViewController {
     /**
         Override this function if you want to do something after page changes. DO NOT FORGET TO CALL super.didChangePage
      */
-    func didChangePage(_ page: Int) {
+    open func didChangePage(_ page: Int) {
         horizontalScrollView.setContentOffset(CGPoint(x: CGFloat(page) * horizontalScrollView.frame.width, y: 0), animated: true) // scroll the horizontal view to the selected page
          self.tabView.didChangeTab(to: page) // notify the tab view that page changes because user scroll to left or right
     }
@@ -171,7 +171,7 @@ class HeaderStickyTabViewController: UIViewController {
     /**
      Override this function if you want to do something when the child view controller scrolls. DO NOT FORGET TO CALL super.childDidScroll
      */
-    func childDidScroll(child: HeaderStickyTabChildViewController, childIndex: Int, yOffset: CGFloat) {
+    open func childDidScroll(child: HeaderStickyTabChildViewController, childIndex: Int, yOffset: CGFloat) {
         // push the header around based on the content offset of the child's scroll view
         self.headerViewTopAnchorConstraint.constant = -(yOffset + self.verticalScrollTopInset)
         UIView.animate(withDuration: 0.2) {
@@ -181,13 +181,13 @@ class HeaderStickyTabViewController: UIViewController {
 }
 
 extension HeaderStickyTabViewController: StickyTabViewDelegate {
-    func didSelectTab(at index: Int) {
+    public func didSelectTab(at index: Int) {
         self.didChangePage(index)
     }
 }
 
 extension HeaderStickyTabViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = getPage(of: scrollView)
         self.didChangePage(page)
         

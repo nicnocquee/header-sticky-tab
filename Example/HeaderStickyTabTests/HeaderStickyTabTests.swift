@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import HeaderStickyTab
+@testable import HeaderStickyTabViewController
 
 class HeaderStickyTabTests: XCTestCase {
 

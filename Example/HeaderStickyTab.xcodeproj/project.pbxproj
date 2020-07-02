@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,10 +14,10 @@
 		030964AC24A59331003B0AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030964AB24A59331003B0AA4 /* Assets.xcassets */; };
 		030964AF24A59331003B0AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */; };
 		030964BA24A59332003B0AA4 /* HeaderStickyTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */; };
-		030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */; };
 		030964C724A8CA77003B0AA4 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */; };
 		030964CA24A8CB92003B0AA4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */; };
 		030964CC24A8D4C1003B0AA4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */; };
+		037CDA6E24ADD7D2007C0FFB /* HeaderStickyTabViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 037CDA6D24ADD7D2007C0FFB /* HeaderStickyTabViewController */; };
 		03C7858524ACBB2600A5B95A /* HeaderStickyTabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7858424ACBB2600A5B95A /* HeaderStickyTabUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,6 @@
 		030964B524A59332003B0AA4 /* HeaderStickyTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeaderStickyTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		030964B924A59332003B0AA4 /* HeaderStickyTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStickyTabTests.swift; sourceTree = "<group>"; };
 		030964BB24A59332003B0AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderStickyTabViewController.swift; path = Source/HeaderStickyTabViewController.swift; sourceTree = "<group>"; };
 		030964C624A8CA77003B0AA4 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		030964C824A8CA8F003B0AA4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		030964CB24A8D4C1003B0AA4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				037CDA6E24ADD7D2007C0FFB /* HeaderStickyTabViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +91,7 @@
 				030964B824A59332003B0AA4 /* HeaderStickyTabTests */,
 				03C7858324ACBB2600A5B95A /* HeaderStickyTabUITests */,
 				030964A024A59330003B0AA4 /* Products */,
+				037CDA6A24ADD6EB007C0FFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,7 +111,6 @@
 				030964A224A59330003B0AA4 /* AppDelegate.swift */,
 				030964A424A59330003B0AA4 /* SceneDelegate.swift */,
 				030964A624A59330003B0AA4 /* ViewController.swift */,
-				030964C424A5944F003B0AA4 /* HeaderStickyTabViewController.swift */,
 				030964A824A59330003B0AA4 /* Main.storyboard */,
 				030964AB24A59331003B0AA4 /* Assets.xcassets */,
 				030964AD24A59331003B0AA4 /* LaunchScreen.storyboard */,
@@ -129,6 +129,13 @@
 				030964BB24A59332003B0AA4 /* Info.plist */,
 			);
 			path = HeaderStickyTabTests;
+			sourceTree = "<group>";
+		};
+		037CDA6A24ADD6EB007C0FFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		03C7858324ACBB2600A5B95A /* HeaderStickyTabUITests */ = {
@@ -156,6 +163,9 @@
 			dependencies = (
 			);
 			name = HeaderStickyTab;
+			packageProductDependencies = (
+				037CDA6D24ADD7D2007C0FFB /* HeaderStickyTabViewController */,
+			);
 			productName = HeaderStickyTab;
 			productReference = 0309649F24A59330003B0AA4 /* HeaderStickyTab.app */;
 			productType = "com.apple.product-type.application";
@@ -273,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				030964CC24A8D4C1003B0AA4 /* ProfileViewController.swift in Sources */,
-				030964C524A5944F003B0AA4 /* HeaderStickyTabViewController.swift in Sources */,
 				030964A724A59330003B0AA4 /* ViewController.swift in Sources */,
 				030964CA24A8CB92003B0AA4 /* ProfileHeaderView.swift in Sources */,
 				030964A324A59330003B0AA4 /* AppDelegate.swift in Sources */,
@@ -604,6 +613,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		037CDA6D24ADD7D2007C0FFB /* HeaderStickyTabViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HeaderStickyTabViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0309649724A59330003B0AA4 /* Project object */;
 }
