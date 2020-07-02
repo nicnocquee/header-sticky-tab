@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='HeaderStickyTabUITests.xctest' tests='4' failures='0'>
+  <testsuite name='HeaderStickyTabTests.HeaderStickyTabTests' tests='3' failures='0'>
+    <testcase classname='HeaderStickyTabTests.HeaderStickyTabTests' name='testChildViewControllers' time='0.112'/>
+    <testcase classname='HeaderStickyTabTests.HeaderStickyTabTests' name='testStickyTabViewDelegate' time='1.130'/>
+    <testcase classname='HeaderStickyTabTests.HeaderStickyTabTests' name='testTabView' time='0.063'/>
+  </testsuite>
+  <testsuite name='HeaderStickyTabUITests.HeaderStickyTabUITests' tests='1' failures='0'>
+    <testcase classname='HeaderStickyTabUITests.HeaderStickyTabUITests' name='testScrollAndPaging' time='14.823'/>
+  </testsuite>
+</testsuites>
