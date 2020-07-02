@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-    uses: maierj/fastlane-action@v1.4.0
-    with:
-      lane: "test"
-      subdirectory: "Example"
+      - uses: maierj/fastlane-action@v1.4.0
+        with:
+          lane: "test"
+          subdirectory: "Example"
