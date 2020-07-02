@@ -4,6 +4,8 @@
 
 A container view controller that displays children view controllers in tabs like the profile screen on Twitter or Instagram without any dependencies. When the user scrolls the scroll view of the child view controller, the tab/segment control stick at the top.
 
+![](https://github.com/nicnocquee/header-sticky-tab/raw/master/preview.gif)
+
 ## Features
 
 - Custom header view
